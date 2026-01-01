@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块 - 经典益智游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">俄罗斯方块</h1>
+            <p class="header-subtitle">经典的益智消除游戏</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="game-container">
+            <!-- 游戏板区域 -->
+            <div class="board-section">
+                <div class="board-wrapper">
+                    <div class="tetris-board" id="tetrisBoard">
+                        <!-- 方块将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+
+                <!-- 游戏控制 -->
+                <div class="game-controls">
+                    <button class="btn btn-primary" id="newGameBtn">新游戏</button>
+                    <button class="btn btn-secondary" id="pauseBtn">暂停</button>
+                </div>
+            </div>
+
+            <!-- 侧边栏 -->
+            <aside class="sidebar">
+                <!-- 下一个方块预览 -->
+                <div class="next-piece-card">
+                    <h3>下一个方块</h3>
+                    <div class="next-piece-preview" id="nextPiecePreview">
+                        <!-- 下一个方块将通过JavaScript显示 -->
+                    </div>
+                </div>
+
+                <!-- 分数信息 -->
+                <div class="score-card">
+                    <h3>分数</h3>
+                    <div class="score-display">
+                        <div class="score-value" id="score">0</div>
+                        <div class="score-label">当前分数</div>
+                    </div>
+                </div>
+
+                <!-- 游戏统计 -->
+                <div class="stats-card">
+                    <h3>游戏统计</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="level">1</div>
+                            <div class="stat-label">等级</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="lines">0</div>
+                            <div class="stat-label">消除行数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="pieces">0</div>
+                            <div class="stat-label">放置方块</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="time">00:00</div>
+                            <div class="stat-label">游戏时间</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 操作提示 -->
+                <div class="help-card">
+                    <h3>操作说明</h3>
+                    <ul class="help-list">
+                        <li>← → 键: 左右移动</li>
+                        <li>↓ 键: 快速下落</li>
+                        <li>↑ 键 / Z 键: 旋转</li>
+                        <li>空格键: 直接到底</li>
+                        <li>P 键: 暂停/继续</li>
+                    </ul>
+                </div>
+
+
+                <!-- 得分说明 -->
+                <div class="score-info-card">
+                    <h3>得分规则</h3>
+                    <ul class="score-list">
+                        <li><span class="score-type">单行:</span> <span class="score-value">40 × 等级</span></li>
+                        <li><span class="score-type">双行:</span> <span class="score-value">100 × 等级</span></li>
+                        <li><span class="score-type">三行:</span> <span class="score-value">300 × 等级</span></li>
+                        <li><span class="score-type">四行:</span> <span class="score-value">1200 × 等级</span></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- 游戏结束弹窗 -->
+    <div class="message-overlay" id="gameOverOverlay">
+        <div class="message-content">
+            <h2 id="gameOverTitle">游戏结束</h2>
+            <div class="final-stats">
+                <div class="final-score">最终分数: <span id="finalScore">0</span></div>
+                <div class="final-level">达到等级: <span id="finalLevel">1</span></div>
+                <div class="final-lines">消除行数: <span id="finalLines">0</span></div>
+                <div class="final-time">游戏时间: <span id="finalTime">00:00</span></div>
+            </div>
+            <button class="btn btn-primary" id="restartBtn">重新开始</button>
+        </div>
+    </div>
+
+    <!-- 暂停弹窗 -->
+    <div class="message-overlay" id="pauseOverlay">
+        <div class="message-content">
+            <h2>游戏暂停</h2>
+            <p>按 P 键或点击继续按钮恢复游戏</p>
+            <button class="btn btn-primary" id="resumeBtn">继续游戏</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
